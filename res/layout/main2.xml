@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:paddingRight="16dp"
+    	android:paddingLeft="16dp"
+>
+    	<View
+		android:id="@+id/fv"
+		android:layout_width="0dp"
+		android:layout_height="fill_parent"
+		android:layout_centerInParent="true"
+		
+	/>
+    	<TextView
+		android:id="@+id/TV1"
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:text="Image Layering"
+    		android:layout_centerHorizontal="true"
+    		android:paddingBottom="2dp"
+    	/> 
+    	<LinearLayout
+    		android:id="@+id/ll1"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:layout_alignParentBottom="true"
+    		android:orientation="horizontal">
+    	
+    		<Button
+    			android:id="@+id/btn_gen"
+    			android:layout_width="fill_parent"
+    			android:layout_height="wrap_content"
+    			android:text="generate layered image"
+    		
+    		/>
+    	</LinearLayout>
+    	<LinearLayout
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_alignParentLeft="true"
+    		android:orientation="vertical"
+    		android:layout_alignRight="@id/fv"
+    		android:layout_below="@id/TV1"
+    		android:layout_above="@id/ll1" >
+    		
+    			<Button 
+    			android:id="@+id/btn1"
+    			android:layout_width="fill_parent"
+    			android:layout_height="wrap_content"
+    			android:text="choose Image 1"
+    			/> 
+    			<ImageView
+    			android:id="@+id/liv"
+    			android:layout_height="wrap_content"
+    			android:layout_width="fill_parent"
+    			android:visibility="invisible"
+    			android:paddingRight="2dp"
+    			/> 
+    	</LinearLayout>
+    	<LinearLayout
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_alignParentRight="true"
+    		android:orientation="vertical"
+    		android:layout_alignLeft="@id/fv"
+    		android:layout_below="@id/TV1"
+    		android:layout_above="@id/ll1" >
+    		
+    			<Button
+    			android:id="@+id/btn2"
+    			android:layout_width="fill_parent"
+    			android:layout_height="wrap_content"   
+    			android:text="choose Image 2"
+    			/>
+    			<ImageView
+    			android:id="@+id/riv"
+    			android:layout_height="wrap_content"
+    			android:layout_width="fill_parent"
+    			android:visibility="invisible"
+    			android:paddingLeft="2dp"
+    	/>  
+    	</LinearLayout>
+</RelativeLayout>
