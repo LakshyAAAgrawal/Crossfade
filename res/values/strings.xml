@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">test</string>
+    <string name="app_name">Crossfade</string>
+    <string name="crossfade">Crossfade</string>
+    <string name="render">render to file</string>
+    <string name="choose1">choose Image 1</string>
+    <string name="choose2">choose Image 2</string>
+    <string name="btn_gen_action"> Crossfade </string>
+    <string name="display">Display and Save</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="no_app_installed">No app installed for choosing Image\nPlease download one</string>
+    <string name="choose_ratio">Please choose valid ratio, range(1-99)</string>
+    <string name="choose_image">Please select Both the Images</string>
+    <string name="same_dim">Both the Images should have the same dimesnsions</string>
+    <string name="img1">Image 1: \n</string>
+    <string name="selected"> Selected</string>
+    <string name="img1_choose">Image 1:\nPlease choose a valid image file</string>
+    <string name="img2">Image 2: \n</string>
+    <string name="img2_choose">Image 1:\nPlease choose a valid image file</string>
+    <string name="pleae_choose">Please choose an Image</string>
+    <string name="ext_unavailable">External Storage\nUnavailable</string>
+
 </resources>

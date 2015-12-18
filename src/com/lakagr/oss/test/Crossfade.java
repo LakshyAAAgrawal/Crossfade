@@ -1,4 +1,4 @@
-package com.lakagr.oss.test;
+package com.lakagr.oss.Crossfade;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ import java.lang.Integer;
 import android.text.TextWatcher;
 import android.text.Editable;
 
-public class test extends Activity
+public class Crossfade extends Activity
 {
     	/** Called when the activity is first created. */
     	private static final int PICK_IMAGE_REQUEST =1;
@@ -62,7 +62,7 @@ public class test extends Activity
 					// Always show the chooser (if there are multiple options available)
 					startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
 				}else{
-					Toast.makeText(getApplicationContext(), "No app installed for choosing Image\nPlease download one",Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), R.string.no_app_installed,Toast.LENGTH_LONG).show();
 				}
         		}
         	});
@@ -78,7 +78,7 @@ public class test extends Activity
 					// Always show the chooser (if there are multiple options available)
 					startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST+1);
 				}else{
-					Toast.makeText(getApplicationContext(), "No app installed for choosing Image\nPlease download one",Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), R.string.no_app_installed,Toast.LENGTH_LONG).show();
 				}
         		}
         	});
@@ -137,16 +137,16 @@ public class test extends Activity
         		
         			
         			if(weight1>99||weight1<1||weight2>99||weight2<1){
-        				Toast.makeText(getApplicationContext(), "Please choose valid ratio, range(1-99)",Toast.LENGTH_LONG).show();
+        				Toast.makeText(getApplicationContext(), R.string.choose_ratio,Toast.LENGTH_LONG).show();
         				return;
         			}
         			if(!(img1_selected&img2_selected)){
-        				Toast.makeText(getApplicationContext(), "Please select Both the Images",Toast.LENGTH_LONG).show();
+        				Toast.makeText(getApplicationContext(), R.string.choose_image,Toast.LENGTH_LONG).show();
         				return;
         			}
         			else{
         				if(bitmap1.getHeight()!=bitmap2.getHeight()||bitmap1.getWidth()!=bitmap2.getWidth()){
-        				Toast.makeText(getApplicationContext(), "Both the Images should have the same dimesnsions",Toast.LENGTH_LONG).show();
+        				Toast.makeText(getApplicationContext(), R.string.same_dim,Toast.LENGTH_LONG).show();
         				return;
         			}
         				Bitmap out=Bitmap.createBitmap(bitmap1.getWidth(),bitmap1.getHeight(),Bitmap.Config.ARGB_8888);
@@ -217,12 +217,12 @@ public class test extends Activity
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
 			uri1 = data.getData();
-			Toast.makeText(getApplicationContext(), "Image 1: \n"+uri1.toString()+" Selected",Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), R.string.img1 +uri1.toString()+R.string.selected,Toast.LENGTH_LONG).show();
 			try{
         			bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(), uri1);
         		}
         		catch(Exception e){
-        			Toast.makeText(getApplicationContext(), "Image 1:\nPlease choose a valid image file",Toast.LENGTH_LONG).show();
+        			Toast.makeText(getApplicationContext(), R.string.img1_choose,Toast.LENGTH_LONG).show();
         		}
         		((ImageView)findViewById(R.id.liv)).setImageBitmap(bitmap1);
         		((ImageView)findViewById(R.id.liv)).setVisibility(View.VISIBLE);
@@ -231,18 +231,18 @@ public class test extends Activity
 		}else
 		if(requestCode == 2 && resultCode == RESULT_OK && data != null && data.getData() != null){
 			uri2 = data.getData();
-			Toast.makeText(getApplicationContext(), "Image 2: \n"+uri2.toString()+" Selected",Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), R.string.img2+uri2.toString()+R.string.selected,Toast.LENGTH_LONG).show();
 			try{
         			bitmap2 = MediaStore.Images.Media.getBitmap(getContentResolver(), uri2);
         		}catch(Exception e){
-        			Toast.makeText(getApplicationContext(), "Image 2:\nPlease choose a valid image file",Toast.LENGTH_LONG).show();
+        			Toast.makeText(getApplicationContext(), R.string.img2_choose,Toast.LENGTH_LONG).show();
         		}
         		((ImageView)findViewById(R.id.riv)).setImageBitmap(bitmap2);
         		((ImageView)findViewById(R.id.riv)).setVisibility(View.VISIBLE);
         		((EditText)findViewById(R.id.weight2)).setVisibility(View.VISIBLE);
         		img2_selected=true;
 		}else{
-			Toast.makeText(getApplicationContext(), "Please Choose an Image",Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), R.string.pleae_choose,Toast.LENGTH_LONG).show();
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package com.lakagr.oss.test;
+package com.lakagr.oss.Crossfade;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -40,10 +40,10 @@ Bitmap bitmap=null;
        		 	@Override
         		public void onClick(View arg0){
         			if(Environment.getExternalStorageState ()==Environment.MEDIA_MOUNTED){
-        				Toast.makeText(getApplicationContext(), "External Storage\nUnavailable",Toast.LENGTH_LONG).show();
+        				Toast.makeText(getApplicationContext(), R.string.ext_unavailable,Toast.LENGTH_LONG).show();
         			}else{
     					try{
-    						File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"Image Layer");
+    						File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"Crossfade");
 						directory.mkdirs();
 						
     							File file = new File(directory, ((EditText)findViewById(R.id.et1)).getText().toString()+".jpg");

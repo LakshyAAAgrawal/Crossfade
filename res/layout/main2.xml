@@ -16,7 +16,7 @@
 		android:id="@+id/TV1"
     		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
-    		android:text="Image Layering"
+    		android:text="@string/app_name"
     		android:layout_centerHorizontal="true"
     		android:paddingBottom="2dp"
     	/> 
@@ -45,7 +45,7 @@
     			android:id="@+id/btn_gen"
     			android:layout_width="wrap_content"
     			android:layout_height="wrap_content"
-    			android:text=" Crossfade "
+    			android:text="@string/btn_gen_action"
     			android:layout_weight="0"
     		
     		/>
@@ -76,7 +76,7 @@
     			android:id="@+id/btn1"
     			android:layout_width="fill_parent"
     			android:layout_height="wrap_content"
-    			android:text="choose Image 1"
+    			android:text="@string/choose1"
     			android:paddingRight="2dp"
     			/> 
     			<ImageView
@@ -101,7 +101,7 @@
     			android:id="@+id/btn2"
     			android:layout_width="fill_parent"
     			android:layout_height="wrap_content"   
-    			android:text="choose Image 2"
+    			android:text="@string/choose2"
     			android:paddingLeft="2dp"
     			/>
     			<ImageView

@@ -9,7 +9,7 @@
 		android:id="@+id/text_dis"
 		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
-		android:text="Layered Image"
+		android:text="@string/crossfade"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
 	/>
@@ -32,7 +32,7 @@
     		android:id="@+id/btn_ren"
     		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"		
-    		android:text="render to file"
+    		android:text="@string/render"
     		android:layout_alignParentBottom="true"
     		android:layout_weight="1"
     	/>
