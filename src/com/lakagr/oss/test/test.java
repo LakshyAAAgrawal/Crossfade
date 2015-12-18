@@ -27,8 +27,8 @@ public class test extends Activity
     	private static final int PICK_IMAGE_REQUEST =1;
     	Uri uri1=null,uri2=null;
     	Bitmap bitmap1=null, bitmap2=null;
-    	boolean img1_selected=false,img2_selected=false,changed1=false,changed2=false;
-    	int weight1, weight2;
+    	boolean img1_selected=false,img2_selected=false,changed1=false,changed2=false, m2, a=true;
+    	int weight1, weight2, b=0;
     	
     	
     	public static int hcf(int a,int b){
@@ -122,7 +122,6 @@ public class test extends Activity
     					weight1=100-weight2;
     					changed1=true;
     					et1.setText(new Integer(weight1).toString());
-    					
    				}
    			}
    		}
@@ -137,7 +136,10 @@ public class test extends Activity
         			
         		
         			
-        			
+        			if(weight1>99||weight1<1||weight2>99||weight2<1){
+        				Toast.makeText(getApplicationContext(), "Please choose valid ratio, range(1-99)",Toast.LENGTH_LONG).show();
+        				return;
+        			}
         			if(!(img1_selected&img2_selected)){
         				Toast.makeText(getApplicationContext(), "Please select Both the Images",Toast.LENGTH_LONG).show();
         				return;
@@ -148,6 +150,7 @@ public class test extends Activity
         				return;
         			}
         				Bitmap out=Bitmap.createBitmap(bitmap1.getWidth(),bitmap1.getHeight(),Bitmap.Config.ARGB_8888);
+        				/*
         				boolean a=out.getWidth()%2==0;
         				boolean alt=true;
         				for(int w=0;w<out.getWidth();w++){
@@ -163,6 +166,33 @@ public class test extends Activity
         					if(a)
         						alt=!alt;
         				}
+        				*/
+        				int hcf=hcf(weight1,weight2);
+        				weight1=weight1/hcf;
+        				weight2=weight2/hcf;
+        				m2=out.getWidth()%2==0;
+      					for(int h=0;h<out.getHeight();h++){
+          					for(int w=0;w<out.getWidth();w++){
+             					 	if(a){
+               					   		out.setPixel(w,h,bitmap1.getPixel(w,h));
+                  						b++;
+                  						if(b>=weight1){
+                    					  		b=0;
+                     					 		a=!a;
+                 					 	}
+              						}else{
+                  						out.setPixel(w,h,bitmap2.getPixel(w,h));
+                  						b++;
+                  						if(b>=weight2){
+                      							b=0;
+                      							a=!a;
+                  						}
+              						}
+          					}
+          					if(m2){
+          						a=!a;
+          					}
+      					}
         				Intent sendIntent=null;
         				try{
         					FileOutputStream stream=openFileOutput("bit-tmp.png",Context.MODE_PRIVATE);
