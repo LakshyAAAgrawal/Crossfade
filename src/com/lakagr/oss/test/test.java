@@ -16,6 +16,10 @@ import android.provider.MediaStore;
 import android.widget.ImageView;
 import java.io.FileOutputStream;
 import android.content.Context;
+import android.widget.EditText;
+import java.lang.Integer;
+import android.text.TextWatcher;
+import android.text.Editable;
 
 public class test extends Activity
 {
@@ -23,12 +27,29 @@ public class test extends Activity
     	private static final int PICK_IMAGE_REQUEST =1;
     	Uri uri1=null,uri2=null;
     	Bitmap bitmap1=null, bitmap2=null;
-    	boolean img1_selected=false,img2_selected=false;
+    	boolean img1_selected=false,img2_selected=false,changed1=false,changed2=false;
+    	int weight1, weight2;
+    	
+    	
+    	public static int hcf(int a,int b){
+       while(a!=b){
+       if(a>b){
+           a-=b;
+       }else
+       if(b>a){
+           b-=a;
+       }else
+           return a;
+       }
+       return a;
+   }
    	@Override
     	public void onCreate(Bundle savedInstanceState)
     	{
         	super.onCreate(savedInstanceState);
         	setContentView(R.layout.main2);
+        	final EditText et1=(EditText)findViewById(R.id.weight1);
+    		final EditText et2=(EditText)findViewById(R.id.weight2);
        		Button btn1=(Button) findViewById(R.id.btn1);
        		btn1.setOnClickListener(new OnClickListener(){
        		 	@Override
@@ -61,6 +82,54 @@ public class test extends Activity
 				}
         		}
         	});
+        	
+        	et1.addTextChangedListener(new TextWatcher(){
+    		public void onTextChanged(CharSequence s, int start, int before, int count) {
+    			if(changed1){
+    				changed1=false;
+    			}else{
+    				if(count==0){
+    					weight1=-10;
+    					weight2=-10;
+    					changed2=true;
+    					et2.setText(et1.getText().toString());
+    					
+    				}else{
+    					weight1=Integer.parseInt(et1.getText().toString());
+    					weight2=100-weight1;
+    					changed2=true;
+    					et2.setText(new Integer(weight2).toString());
+    					
+   				}
+   			}
+   		}
+   		public void afterTextChanged(Editable s) {}
+   		public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+    	});
+    		et2.addTextChangedListener(new TextWatcher(){
+    		public void onTextChanged(CharSequence s, int start, int before, int count) {
+      			if(changed2){
+    				changed2=false;
+    			}else{
+    				if(count==0){
+    					weight1=-10;
+    					weight2=-10;
+    					changed1=true;
+    					et1.setText(et2.getText().toString());
+    					
+    				}else{
+    					weight2=Integer.parseInt(et2.getText().toString());
+    					weight1=100-weight2;
+    					changed1=true;
+    					et1.setText(new Integer(weight1).toString());
+    					
+   				}
+   			}
+   		}
+   		public void afterTextChanged(Editable s) {}
+   		public void beforeTextChanged(CharSequence s, int start,
+     int count, int after) {}
+    	});
         	Button btngen=(Button)findViewById(R.id.btn_gen);
         	btngen.setOnClickListener(new OnClickListener(){
         		@Override
@@ -127,6 +196,7 @@ public class test extends Activity
         		}
         		((ImageView)findViewById(R.id.liv)).setImageBitmap(bitmap1);
         		((ImageView)findViewById(R.id.liv)).setVisibility(View.VISIBLE);
+        		((EditText)findViewById(R.id.weight1)).setVisibility(View.VISIBLE);
         		img1_selected=true;
 		}else
 		if(requestCode == 2 && resultCode == RESULT_OK && data != null && data.getData() != null){
@@ -139,6 +209,7 @@ public class test extends Activity
         		}
         		((ImageView)findViewById(R.id.riv)).setImageBitmap(bitmap2);
         		((ImageView)findViewById(R.id.riv)).setVisibility(View.VISIBLE);
+        		((EditText)findViewById(R.id.weight2)).setVisibility(View.VISIBLE);
         		img2_selected=true;
 		}else{
 			Toast.makeText(getApplicationContext(), "Please Choose an Image",Toast.LENGTH_LONG).show();

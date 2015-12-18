@@ -26,14 +26,42 @@
     		android:layout_height="wrap_content"
     		android:layout_alignParentBottom="true"
     		android:orientation="horizontal">
-    	
+    		android:weightSum="3"
+    		
+    		<EditText
+    				android:id="@+id/weight1"
+    				android:layout_height="wrap_content"
+    				android:layout_width="wrap_content"
+    				android:paddingRight="2dp"
+    				android:hint="ratio(%)"
+    				android:layout_weight="1"
+    				android:inputType="number"
+    				android:singleLine="true"
+    				android:scrollHorizontally="false"
+    				android:digits="\\0 |\\1 | \\2 | \\3 | \\4 | \\5 |\\6 | \\7 |\\8 | \\9"
+    				android:maxLength="3"
+    			/>
     		<Button
     			android:id="@+id/btn_gen"
-    			android:layout_width="fill_parent"
+    			android:layout_width="wrap_content"
     			android:layout_height="wrap_content"
-    			android:text="generate layered image"
+    			android:text=" Crossfade "
+    			android:layout_weight="0"
     		
     		/>
+    		<EditText
+    				android:id="@+id/weight2"
+    				android:layout_height="wrap_content"
+    				android:layout_width="wrap_content"
+    				android:paddingLeft="2dp"
+    				android:hint=" ratio(%)"
+    				android:layout_weight="1"
+    				android:inputType="number"
+    				android:singleLine="true"
+    				android:scrollHorizontally="false"
+    				android:digits="\\0 |\\1 | \\2 | \\3 | \\4 | \\5 |\\6 | \\7 |\\8 | \\9 "
+    				android:maxLength="3"
+    			/>  
     	</LinearLayout>
     	<LinearLayout
     		android:layout_width="wrap_content"
@@ -49,6 +77,7 @@
     			android:layout_width="fill_parent"
     			android:layout_height="wrap_content"
     			android:text="choose Image 1"
+    			android:paddingRight="2dp"
     			/> 
     			<ImageView
     			android:id="@+id/liv"
@@ -57,6 +86,7 @@
     			android:visibility="invisible"
     			android:paddingRight="2dp"
     			/> 
+    			
     	</LinearLayout>
     	<LinearLayout
     		android:layout_width="wrap_content"
@@ -72,6 +102,7 @@
     			android:layout_width="fill_parent"
     			android:layout_height="wrap_content"   
     			android:text="choose Image 2"
+    			android:paddingLeft="2dp"
     			/>
     			<ImageView
     			android:id="@+id/riv"
@@ -79,6 +110,7 @@
     			android:layout_width="fill_parent"
     			android:visibility="invisible"
     			android:paddingLeft="2dp"
-    	/>  
+    			/>
+    			
     	</LinearLayout>
 </RelativeLayout>
