@@ -1,20 +1,24 @@
-/*<Crossfade(Image Layering), Android App which lets users crossfade 2 different images in a specified weightage.>
+/*
+    Crossfade(Image Layering), Android App which lets users crossfade 2 different images in a specified weightage.>
     Copyright (C) 2015  Lakshya A Agrawal
 
-    This program is free software: you can redistribute it and/or modify
+    This file is part of Crossfade.
+
+    Crossfade is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    any later version.
+    (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
+    Crossfade is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    along with Foobar.  If not, see <http://www.gnu.org/licenses.
+    
     The Author:
-    Lakshya A Agarawal 
+    Lakshya A Agarawal 2015
     lakshya.aagrawal@gmail.com */
 
 package com.lakagr.oss.Crossfade;
