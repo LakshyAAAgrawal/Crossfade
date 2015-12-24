@@ -72,12 +72,15 @@ Bitmap bitmap=null;
         					
         					FileOutputStream fOut = new FileOutputStream(file);
         					bitmap.compress(Bitmap.CompressFormat.JPEG,100,fOut);
+        					Toast.makeText(getApplicationContext(), " File Saved in \n "+ directory.toString(),Toast.LENGTH_LONG).show();
+            					Toast.makeText(getApplicationContext(), "Thank You \n For using Crossfade",Toast.LENGTH_LONG).show();
         					//MediaScannerConnection a=new MediaScannerConnection(getApplicationContext(),null);
         					//a.connect();
         					//a.scanFile(Environment.getExternalStoragePublicDirectory(
             //Environment.DIRECTORY_PICTURES).toString()+ ((EditText)findViewById(R.id.et1)).getText().toString()+".jpg", null);
             					sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"
             + directory))); 
+            					
         					fOut.close();
         				}catch(Exception e){}
         			}

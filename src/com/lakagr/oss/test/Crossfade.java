@@ -152,12 +152,12 @@ public class Crossfade extends Activity
    		public void beforeTextChanged(CharSequence s, int start,
      int count, int after) {}
     	});
-        	Button btngen=(Button)findViewById(R.id.btn_gen);
+        	final Button btngen=(Button)findViewById(R.id.btn_gen);
         	btngen.setOnClickListener(new OnClickListener(){
         		@Override
         		public void onClick(View arg0){
         			
-        		
+        			
         			
         			if(weight1>99||weight1<1||weight2>99||weight2<1){
         				Toast.makeText(getApplicationContext(), R.string.choose_ratio,Toast.LENGTH_LONG).show();
@@ -190,10 +190,12 @@ public class Crossfade extends Activity
         						alt=!alt;
         				}
         				*/
+        				
         				int hcf=hcf(weight1,weight2);
         				weight1=weight1/hcf;
         				weight2=weight2/hcf;
-        				m2=out.getWidth()%2==0;
+        				m2=out.getWidth()%(weight1+weight2)==0;
+        				btngen.setText("processing...");
       					for(int h=0;h<out.getHeight();h++){
           					for(int w=0;w<out.getWidth();w++){
              					 	if(a){
@@ -229,6 +231,7 @@ public class Crossfade extends Activity
         					sendIntent.putExtra("img", "bit-tmp.png");
         					
         				}catch(Exception e){}
+        				btngen.setText("Crossfade");
         				startActivity(sendIntent);
         				
         			}
